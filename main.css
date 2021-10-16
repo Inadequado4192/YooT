@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+:root {
+    --c1: #262626;
+    --c2: #EEEEEE;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: var(--c1);
+}
+body * {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+/* MENU */
+#menu {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+#menu button {
+    font-size: 30px;
+    margin-bottom: 10px;
+    background: none;
+    border: none;
+    outline: none;
+    transition: .2s;
+    color: var(--c2);
+    cursor: pointer;
+}
+#menu button[disabled] {
+    cursor: default;
+    opacity: 0.5;
+}
+#menu button:hover {
+    letter-spacing: 2px;
+}
+#menu button[disabled]:hover {
+    letter-spacing: 0px;
+}
+
+#goMenu {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color: var(--c1);
+    box-shadow: 0 0 5px rgba(0,0,0,.5);
+    color: var(--c2);
+    border: 2px solid;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    z-index: 999;
+}
+#goMenu svg {
+    width: 10px;
+}
+#goMenu span {
+    line-height: 200%;
+    margin-left: 5px;
+}
+
+
+
+
+/* LEVELS */
+#levels {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 500px;
+    text-align: center;
+    flex-direction: column;
+}
+#levels .easy {
+    color: #00dd00;
+}
+#levels .medium {
+    color: #dddd00;
+}
+#levels .hard {
+    color: #dd0000;
+}
+#levels h1 {
+    border-bottom: 2px solid;
+    text-transform: uppercase;
+    cursor: default;
+}
+#levels span {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid;
+    border-radius: 5px;
+    background: #000;
+    font-size: 20px;
+    transition: .2s;
+    margin: 2px;
+    opacity: .5;
+    pointer-events: none;
+    cursor: pointer;
+    user-select: none;
+}
+#levels span.sel {
+    opacity: 1;
+    pointer-events: all;
+}
+#levels span b {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#levels span.sel:hover {
+    background-color: var(--c1);
+}
+
+
+
+
+/* CREATE */
+#create {
+    flex-direction: row;
+    user-select: none;
+    background-color: #151515;
+    height: 100%;
+    color: #fff;
+}
+#create #c-field {
+    position: relative;
+    background-color: #262626;
+}
+
+#create #goMenu {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    background: #000;
+    text-align: center;
+    z-index: auto;
+}
+#create .mobile {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#create.m[style="display: flex;"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+#create.m[style="display: flex;"] #panel, #create.m[style="display: flex;"] > div:nth-child(1) {
+    display: none !important;
+}
+#create.m[style="display: flex;"] .mobile {
+    display: block;
+}
+@media screen and (max-width: 1200px) {
+    #create[style="display: flex;"] {
+        display: block !important;
+        height: auto;
+    }
+    #create[style="display: flex;"] #panel {
+        width: auto !important;
+    }
+    #create[style="display: flex;"] #c-field {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+
+#create #panel {
+    padding: 20px 40px;
+    background-color: #373737;
+    width: 100%;
+    box-shadow: 0 0 20px #000;
+    overflow-y: scroll;
+    z-index: 2;
+}
+#create #panel #size {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+#create #panel #size > div {
+    border: 1px solid;
+    padding: 5px 10px;
+    width: 30%;
+    text-align: center;
+    cursor: pointer;
+}
+#create #panel .required div, #create #panel .elements div {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    padding: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+#create #panel .required div:hover, #create #panel .elements div:hover {
+    background-color: #484848;
+}
+
+#create #panel div[hidden] {
+    opacity: .5;
+    pointer-events: none;
+}
+
+
+#create #file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+}
+#create #file ._btn {
+    background: none;
+    outline: none;
+    text-align: center;
+    border: 1px solid;
+    letter-spacing: 1px;
+    padding: 5px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 5px;
+    color: #fff;
+    text-decoration: none;
+}
+#create #file ._btn:disabled:hover {
+    background: none;
+}
+#create #file ._btn:hover {
+    background: #373737;
+}
+#create #file label:hover.loading,
+#create #file label.loading  {
+    color: #aaa !important;
+    background: none !important;
+}
+
+#create #panel::-webkit-scrollbar {
+    width: 10px;
+}
+#create #panel::-webkit-scrollbar-track {
+    background: inherit;
+}
+#create #panel::-webkit-scrollbar-thumb {
+    background: #888 ;
+}
+#create #panel::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+
+
+
+
+/* GAME */
+#c {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 30px #000;
+    background: #262626;
+}
+
+#coins {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    letter-spacing: 5px;
+    color: #EEEEEE;
+}
+#coins::after {
+    content: "";
+    display: inline-block;
+    background-color: #c9d12a;
+    width: 20px;
+    height: 20px;
+}

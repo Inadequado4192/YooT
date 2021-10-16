@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>YooT</title>
+        <link rel="stylesheet" href="./main.css">
+    </head>
+    <body>
+        <div id="goMenu" onclick="showMenu()"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-left" class="svg-inline--fa fa-caret-left fa-w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path fill="currentColor" d="M192 127.338v257.324c0 17.818-21.543 26.741-34.142 14.142L29.196 270.142c-7.81-7.81-7.81-20.474 0-28.284l128.662-128.662c12.599-12.6 34.142-3.676 34.142 14.142z"></path></svg><span>MENU</span></div>
+        <div id="menu" class="center">
+            <button onclick="Continue()">Continue</button>
+            <button onclick="NewGame()">New Game</button>
+            <button disabled>Sandbox</button>
+            <button onclick="showLevelEditor()">Create Map</button>
+        </div>
+        <div id="levels">
+            <div class="easy">
+                <h1>easy</h1>
+                <div></div>
+            </div>
+            <div class="medium">
+                <h1>medium</h1>
+                <div></div>
+            </div>
+            <div class="hard">
+                <h1>hard</h1>
+                <div></div>
+            </div>
+        </div>
+        <div id="create">
+            <div>
+                <canvas id="c-field"></canvas>
+            </div>
+            <div id="panel">
+                <div id="goMenu" onclick="showMenu()"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-left" class="svg-inline--fa fa-caret-left fa-w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path fill="currentColor" d="M192 127.338v257.324c0 17.818-21.543 26.741-34.142 14.142L29.196 270.142c-7.81-7.81-7.81-20.474 0-28.284l128.662-128.662c12.599-12.6 34.142-3.676 34.142 14.142z"></path></svg><span>MENU</span></div>
+                <div id="size">
+                    <div class="remove" onclick="editSize(-1)">Remove Size</div>
+                    <div class="add" onclick="editSize(1)">Add Size</div>
+                </div>
+                <div class="required">
+                    <h2>Required Elements</h2>
+                </div>
+                <div class="elements">
+                    <h2>Elements</h2>
+                </div>
+                <div id="file">
+                    <label class="_btn">
+                        Choose file to upload
+                        <input type="file" id="fileInput" accept=".yoot" hidden>
+                    </label>
+                    <a class="save _btn">Save</a>
+                </div>
+            </div>
+            <div class="mobile">
+                <span>Editor only supports PC</span>
+            </div>
+        </div>
+        <canvas id="c"></canvas>
+        <div id="coins" style="display: none;"></div>
+    </body>
+    <script src="./levels.js"></script>
+    <script src="./objects.js"></script>
+    <script src="./main.js"></script>
+</html>
